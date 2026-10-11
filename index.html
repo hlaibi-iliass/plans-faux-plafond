@@ -15,15 +15,10 @@
     padding: 20px;
   }
 
-  /* Width of the widest plan (1620) + body padding, so the page scrolls sideways
-     instead of cutting the plans off when zoomed in or on a small screen. */
   #view-baffle, #view-triangular { min-width: 1620px; }
 
-  /* Middle-button (wheel press) drag-to-pan */
   html.panning, html.panning * { cursor: grabbing !important; user-select: none !important; }
 
-  /* Navigation with hidden radio buttons + labels: works without JavaScript
-     and without changing the URL, so it also works inside sandboxed previews. */
   .nav-radio { display: none; }
   .view { display: none; }
   #nav-landing:checked ~ #view-landing,
@@ -205,7 +200,6 @@
 
   .info-box.green .value { color: #008844; }
 
-  /* Info box full width */
   .info-box.full {
     grid-column: 1 / -1;
   }
@@ -296,7 +290,6 @@
   .sub-title.gold { border-left-color:#b8860b; }
   .sub-title.green { border-left-color:#2e7d32; }
 
-  /* Net area + 5 % reserve shown above each plan */
   .area-bar { display:flex; gap:12px; margin:0 0 10px; }
   .area-bar span { background:#fff; border:1px solid #000; border-left:4px solid #003366;
     padding:8px 14px; font-size:11px; font-weight:bold; color:#666; letter-spacing:1px; }
@@ -387,7 +380,7 @@
 <input type="radio" name="nav" id="nav-baffle" class="nav-radio">
 
 <!-- ============================================================ -->
-<!-- ==================== VIEW 2 — TRIANGULAR (placeholder) ==================== -->
+<!-- ==================== VIEW 2 — TRIANGULAR ==================== -->
 <!-- ============================================================ -->
 <div id="view-triangular" class="view">
   <label class="back-btn" for="nav-landing">← Retour</label>
@@ -649,7 +642,7 @@
 </div>
 
 <!-- ============================================================ -->
-<!-- ==================== VIEW 3 — LINEAR BAFFLE (all 5 plans) ==================== -->
+<!-- ==================== VIEW 3 — LINEAR BAFFLE ==================== -->
 <!-- ============================================================ -->
 <div id="view-baffle" class="view">
   <label class="back-btn" for="nav-landing">← Retour</label>
@@ -1901,7 +1894,7 @@
     </g>
   </svg>
 
-  <!-- ============ DRAWING 2.5 — ZONE 5 — REFECTOIRE (BLACK OUTLINE ONLY) ============ -->
+  <!-- ============ DRAWING 2.5 — ZONE 5 — REFECTOIRE — BAFFLES VERTICAL ============ -->
   <div class="sub-title" style="border-left-color:#7b1fa2;">DRAWING 2.5 — ZONE 5 — REFECTOIRE (INNER 1-2-3-4 · BLACK OUTLINE 5-6-7-8)</div>
   <div class="area-bar"><span>NET AREA<b>56.04 m²</b></span><span class="res">RESERVE +5 %<b>+2.80 m²</b></span><span class="tot">NET + 5 %<b>58.84 m²</b></span></div>
 
@@ -1910,8 +1903,9 @@
     <rect x="30" y="30" width="1560" height="1120" fill="none" stroke="#000" stroke-width="1"/>
 
     <defs>
-      <pattern id="baffle-z5" x="0" y="0" width="12000" height="150" patternUnits="userSpaceOnUse">
-        <rect x="0" y="0" width="12000" height="25" fill="#7c3aed"/>
+      <!-- VERTICAL baffle stripes: pattern tiles horizontally at 150 mm, stripe is 25 mm wide -->
+      <pattern id="baffle-z5" x="0" y="0" width="150" height="12000" patternUnits="userSpaceOnUse">
+        <rect x="0" y="0" width="25" height="12000" fill="#7c3aed"/>
       </pattern>
       <clipPath id="clip-z5">
         <polygon points="1430,0 8326,2390 8326,8446 0,8446"/>
@@ -1920,7 +1914,7 @@
 
     <g transform="translate(486, 268) scale(0.08)">
 
-      <!-- ============ BLACK OUTER POLYGON — OUTLINE ONLY (no fill) ============ -->
+      <!-- ============ BLACK OUTER POLYGON — OUTLINE ONLY ============ -->
       <polygon points="484,-1598 9526,1536 9526,9646 -1420,9646"
                fill="none" stroke="#000000" stroke-width="80" stroke-linejoin="miter"/>
 
@@ -1928,27 +1922,27 @@
       <polygon points="1430,0 8326,2390 8326,8446 0,8446"
                fill="#f3e5f5" stroke="none"/>
 
-      <!-- Baffle pattern -->
+      <!-- VERTICAL baffle pattern -->
       <polygon points="1430,0 8326,2390 8326,8446 0,8446"
                fill="url(#baffle-z5)" clip-path="url(#clip-z5)"/>
 
-      <!-- 8 vertical Carriers -->
+      <!-- HORIZONTAL Carriers (perpendicular to vertical baffles) -->
       <g clip-path="url(#clip-z5)" stroke="#ff8800" stroke-width="45" stroke-linecap="round">
-        <line x1="150"    y1="-100" x2="150"    y2="8546"/>
-        <line x1="1296.6" y1="-100" x2="1296.6" y2="8546"/>
-        <line x1="2443.2" y1="-100" x2="2443.2" y2="8546"/>
-        <line x1="3589.8" y1="-100" x2="3589.8" y2="8546"/>
-        <line x1="4736.4" y1="-100" x2="4736.4" y2="8546"/>
-        <line x1="5883.0" y1="-100" x2="5883.0" y2="8546"/>
-        <line x1="7029.6" y1="-100" x2="7029.6" y2="8546"/>
-        <line x1="8176.0" y1="-100" x2="8176.0" y2="8546"/>
+        <line x1="-1600" y1="150"    x2="9600" y2="150"/>
+        <line x1="-1600" y1="1313.7" x2="9600" y2="1313.7"/>
+        <line x1="-1600" y1="2477.4" x2="9600" y2="2477.4"/>
+        <line x1="-1600" y1="3641.1" x2="9600" y2="3641.1"/>
+        <line x1="-1600" y1="4804.9" x2="9600" y2="4804.9"/>
+        <line x1="-1600" y1="5968.6" x2="9600" y2="5968.6"/>
+        <line x1="-1600" y1="7132.3" x2="9600" y2="7132.3"/>
+        <line x1="-1600" y1="8296"   x2="9600" y2="8296"/>
       </g>
 
       <!-- Pink inner outline -->
       <polygon points="1430,0 8326,2390 8326,8446 0,8446"
                fill="none" stroke="#7b1fa2" stroke-width="55"/>
 
-      <!-- ============ 90° MARKER at P3 ============ -->
+      <!-- 90° MARKER at P3 -->
       <polyline points="8326,8196 8076,8196 8076,8446"
                 fill="none" stroke="#7b1fa2" stroke-width="45"
                 stroke-linecap="round" stroke-linejoin="round"/>
@@ -1967,7 +1961,7 @@
       <circle cx="0" cy="8446" r="110" fill="#7b1fa2"/>
       <text x="-290" y="8650" style="font-size:280px;font-weight:bold;fill:#7b1fa2;text-anchor:end;">4</text>
 
-      <!-- ============ OUTER POINTS 5-6-7-8 (black dots, black text) ============ -->
+      <!-- ============ OUTER POINTS 5-6-7-8 (black) ============ -->
       <circle cx="484" cy="-1598" r="110" fill="#000000"/>
       <text x="150" y="-1750" style="font-size:300px;font-weight:bold;fill:#000000;">5</text>
 
@@ -1980,30 +1974,25 @@
       <circle cx="-1420" cy="9646" r="110" fill="#000000"/>
       <text x="-1700" y="9850" style="font-size:300px;font-weight:bold;fill:#000000;text-anchor:end;">8</text>
 
-      <!-- ============ 1200 MM DIMENSIONS — PERPENDICULAR BETWEEN RIBS ============ -->
-
-      <!-- Side 1-2 -->
+      <!-- ============ 1200 MM DIMENSIONS ============ -->
       <line x1="4551" y1="1700" x2="4944" y2="566" stroke="#000" stroke-width="35"/>
       <line x1="4520" y1="1725" x2="4582" y2="1675" stroke="#000" stroke-width="45"/>
       <line x1="4913" y1="591" x2="4975" y2="541" stroke="#000" stroke-width="45"/>
       <text x="5000" y="700" style="font-size:240px;font-weight:bold;fill:#000;
                    paint-order:stroke;stroke:#fff;stroke-width:50px;">1 200</text>
 
-      <!-- Side 2-3 -->
       <line x1="8326" y1="5418" x2="9526" y2="5418" stroke="#000" stroke-width="35"/>
       <line x1="8346" y1="5388" x2="8346" y2="5448" stroke="#000" stroke-width="45"/>
       <line x1="9506" y1="5388" x2="9506" y2="5448" stroke="#000" stroke-width="45"/>
       <text x="8900" y="5300" text-anchor="middle" style="font-size:240px;font-weight:bold;fill:#000;
                    paint-order:stroke;stroke:#fff;stroke-width:50px;">1 200</text>
 
-      <!-- Side 3-4 -->
       <line x1="4163" y1="8446" x2="4163" y2="9646" stroke="#000" stroke-width="35"/>
       <line x1="4133" y1="8466" x2="4193" y2="8466" stroke="#000" stroke-width="45"/>
       <line x1="4133" y1="9626" x2="4193" y2="9626" stroke="#000" stroke-width="45"/>
       <text x="4450" y="9100" style="font-size:240px;font-weight:bold;fill:#000;
                    paint-order:stroke;stroke:#fff;stroke-width:50px;">1 200</text>
 
-      <!-- Side 4-1 -->
       <line x1="715" y1="4223" x2="-468" y2="4023" stroke="#000" stroke-width="35"/>
       <line x1="700" y1="4252" x2="745" y2="4198" stroke="#000" stroke-width="45"/>
       <line x1="-483" y1="4052" x2="-438" y2="3998" stroke="#000" stroke-width="45"/>
@@ -2043,11 +2032,11 @@
       </text>
       <text x="4200" y="6100" text-anchor="middle" style="font-size:220px;font-weight:bold;fill:#003366;
                    paint-order:stroke;stroke:#fff;stroke-width:70px;">
-        ▬ BAFFLES: 56 rows · 25 mm @ 125 mm · 150 mm C/C
+        ▬ BAFFLES: 56 rows VERTICAL · 25 mm @ 125 mm · 150 mm C/C
       </text>
       <text x="4200" y="6480" text-anchor="middle" style="font-size:220px;font-weight:bold;fill:#ff8800;
                    paint-order:stroke;stroke:#fff;stroke-width:70px;">
-        ▬ CARRIERS: 8 pcs · 1 147 mm C/C · 150 mm edge
+        ▬ CARRIERS: 8 pcs HORIZONTAL · 1 164 mm C/C · 150 mm edge
       </text>
     </g>
   </svg>
@@ -2073,7 +2062,7 @@
 
       <rect x="800" y="52" width="740" height="130" fill="#fff8e6" stroke="#ff8800" stroke-width="2"/>
       <text x="815" y="76" style="font-size:14px;font-weight:bold;fill:#cc6600;">▸ CARRIERS — 3 m BARS</text>
-      <text x="815" y="102" style="font-size:12px;fill:#333;">Count</text>
+      <text x="815" y="102" style="font-size:12px;fill:#333;">Count (horizontal)</text>
       <text x="1440" y="102" style="font-size:13px;font-weight:bold;fill:#cc6600;" text-anchor="end">8 pcs</text>
       <text x="815" y="124" style="font-size:12px;fill:#333;">Total linear (net)</text>
       <text x="1440" y="124" style="font-size:13px;font-weight:bold;fill:#cc6600;" text-anchor="end">51.15 ml</text>
@@ -2082,8 +2071,8 @@
       <text x="1440" y="164" style="font-size:13px;font-weight:bold;fill:#cc6600;" text-anchor="end">22 + 2 = 24 bars</text>
 
       <rect x="20" y="192" width="1520" height="86" fill="#fff0f0" stroke="#c00000" stroke-width="2"/>
-      <text x="35" y="216" style="font-size:14px;font-weight:bold;fill:#c00000;">▸ BAFFLES — 3 m BARS</text>
-      <text x="35" y="242" style="font-size:12px;fill:#333;">Rows</text>
+      <text x="35" y="216" style="font-size:14px;font-weight:bold;fill:#c00000;">▸ BAFFLES VERTICAL — 3 m BARS</text>
+      <text x="35" y="242" style="font-size:12px;fill:#333;">Rows (vertical)</text>
       <text x="450" y="242" style="font-size:13px;font-weight:bold;fill:#c00000;" text-anchor="middle">56</text>
       <text x="600" y="242" style="font-size:12px;fill:#333;">Net linear</text>
       <text x="800" y="242" style="font-size:13px;font-weight:bold;fill:#c00000;" text-anchor="middle">373.60 ml</text>
